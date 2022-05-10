@@ -8,6 +8,8 @@ authors = ["Antoinette Lee"]
 python = "^3.8"
 Flask = "^2.1.2"
 python-dotenv = "^0.20.0"
+Flask-SQLAlchemy = "^2.5.1"
+Flask-Migrate = "^3.1.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"

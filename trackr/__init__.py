@@ -1,13 +1,17 @@
 import os
 
 from flask import Flask
+from trackr.db import db
+from flask_migrate import Migrate
+
+migrate = Migrate()
 
 def create_app(test_config = None):
 	# create and configure the app
 	app = Flask(__name__, instance_relative_config = True)
 	app.config.from_mapping(
 		SECRET_KEY = "dev",
-		DB_URI = os.path.join(app.instance_path, "trackr.sqlite"),
+		SQLALCHEMY_DATABASE_URI = os.path.join(app.instance_path, "trackr.sqlite"),
     )
 	
 	if test_config is None:
@@ -25,5 +29,8 @@ def create_app(test_config = None):
 	@app.route("/hello")
 	def hello():
 		return "Hello, World!"
+	# db
+	db.init_app(app)
+	migrate.init_app(app, db)
 	return app
 	
