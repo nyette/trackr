@@ -6,6 +6,7 @@
 
 * [Python 3.8+](https://www.python.org/)
 * [Poetry](https://python-poetry.org/)
+* [PostgreSQL 14](https://www.postgresql.org/)
 
 ## Getting Started
 
@@ -13,5 +14,6 @@
 * Navigate to the project directory
 * Activate the virtual environment: `poetry shell`
 * Install dependencies: `poetry install`
-* Set environment variables: `FLASK_APP` = `trackr` and `FLASK_ENV` = `development`
+* Apply database migrations: `flask db upgrade`
+* Set environment variables: `FLASK_APP` = `trackr`, `FLASK_ENV` = `development`, and `SQLALCHEMY_DATABASE_URI` = `postgresql://microblog_7uo9_user:KPReAqyNWodBLoYCPv1mP8XnnJXsnoIf@dpg-c9qsfcehb05tgup8bf4g-a.ohio-postgres.render.com/microblog_7uo9`
 * Start the development server: `flask run`
