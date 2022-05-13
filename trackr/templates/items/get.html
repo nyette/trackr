@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ item.name }}</h2>
+<p>{{ item.description }}</p>
+<p>{{ item.price }} USD</p>
+<p>Count: {{ item.count }}</p>
+
+<h2>Options</h2>
+{% if not item.in_trash %}
+<a href="{{ url_for('items.update', id = item.id) }}">Update</a> |
+<a href="{{ url_for('items.delete', id = item.id) }}">Delete</a>
+{% else %}
+<a href="{{ url_for('items.restore', id = item.id) }}">Restore</a> |
+<a href="{{ url_for('items.purge', id = item.id) }}">Purge</a>
+{% endif %}
+{% endblock %}

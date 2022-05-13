@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Items</h2>
+{% if items %}
+    <ul class="items">
+    {% for item in items %}
+        <li class="item">
+            <a href="{{ url_for('items.get', id = item.id) }}">{{ item.name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no items at this time.</p>
+{% endif %}
+
+<h2>Trash</h2>
+{% if trash %}
+    <ul class="trash">
+    {% for item in trash %}
+        <li class="item">
+            <a href="{{ url_for('items.get', id = item.id) }}">{{ item.name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>The trash bin is empty.</p>
+{% endif %}
+{% endblock %}

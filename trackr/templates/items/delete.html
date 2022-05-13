@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.deletion_comment.label }}
+        <br>
+        {{ form.deletion_comment() }}
+        <br>
+        {% for error in form.deletion_comment.errors %}
+        <p style="color: red;">[{{ error }}]</p>
+        {% endfor %}
+    </p>
+    
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

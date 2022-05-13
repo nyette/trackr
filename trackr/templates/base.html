@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>trackr</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="{{ url_for('items.index') }}">Items</a> | <a href="{{ url_for('items.create') }}">Create Item</a>
+            </nav>
+        </header>
+        
+        <main>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}    
+            <div>
+                {% for message in messages %}
+                <p style="color: green;">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
