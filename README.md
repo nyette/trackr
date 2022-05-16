@@ -16,6 +16,20 @@
 * Navigate to the project directory
 * Activate the virtual environment: `poetry shell`
 * Install dependencies: `poetry install`
+* Set environment variables in `.env`:
+
+```
+FLASK_APP=trackr
+FLASK_ENV=development
+```
+
+* Set configuration values in `instance/config.py`. Note that the `instance` directory should be a subdirectory of the repo:
+
+```python
+SECRET_KEY = "dev"
+
+SQLALCHEMY_DATABASE_URI = "postgresql://microblog_7uo9_user:KPReAqyNWodBLoYCPv1mP8XnnJXsnoIf@dpg-c9qsfcehb05tgup8bf4g-a.ohio-postgres.render.com/microblog_7uo9"
+```
+
 * Apply database migrations: `flask db upgrade`
-* Set environment variables: `FLASK_APP` = `trackr`, `FLASK_ENV` = `development`, and `SQLALCHEMY_DATABASE_URI` = `postgresql://microblog_7uo9_user:KPReAqyNWodBLoYCPv1mP8XnnJXsnoIf@dpg-c9qsfcehb05tgup8bf4g-a.ohio-postgres.render.com/microblog_7uo9`
-* Start the development server: `flask run`
+* Start the development server: `flask run --host=0.0.0.0`
