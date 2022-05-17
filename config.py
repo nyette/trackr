@@ -17,5 +17,5 @@ class ProdConfig(Config):
     FLASK_ENV = "production"
     DEBUG = False
     TESTING = False
-    SERVER_NAME = "0.0.0.0"
+    # SERVER_NAME = "0.0.0.0"
     
