@@ -1,5 +1,6 @@
 from flask import Blueprint, flash, redirect, render_template, url_for
-from trackr.db import db, Item
+from trackr.db import db
+from trackr.models import Item
 from trackr.forms import SaveItemForm, DeleteItemForm
 from datetime import datetime
 
