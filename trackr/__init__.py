@@ -4,7 +4,7 @@ from trackr.db import db
 from flask_migrate import Migrate
 from trackr import errors
 from werkzeug.exceptions import HTTPException
-from trackr import items
+from trackr.items import bp as items_bp
 
 def create_app():
 	# create and configure the app
@@ -23,7 +23,7 @@ def create_app():
 	app.register_error_handler(HTTPException, errors.handle_error)
 
 	# bp
-	app.register_blueprint(items.bp)
+	app.register_blueprint(items_bp)
 	app.add_url_rule("/", endpoint = "index")
 	
 	return app

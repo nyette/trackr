@@ -5,6 +5,9 @@
 <p>{{ item.description }}</p>
 <p>{{ item.price }} USD</p>
 <p>Count: {{ item.count }}</p>
+{% if item.deletion_comment %}
+<p>Deletion Comment: {{ item.deletion_comment }}</p>
+{% endif %}
 
 <h2>Options</h2>
 {% if not item.in_trash %}

@@ -1,10 +1,9 @@
-from flask import Blueprint, flash, redirect, render_template, url_for
+from flask import flash, redirect, render_template, url_for
+from trackr.items import bp
 from trackr.db import db
 from trackr.models import Item
-from trackr.forms import SaveItemForm, DeleteItemForm
+from trackr.items.forms import SaveItemForm, DeleteItemForm
 from datetime import datetime
-
-bp = Blueprint("items", __name__)
 
 @bp.route("/")
 def index():
