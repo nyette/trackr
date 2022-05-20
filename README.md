@@ -23,7 +23,7 @@ MODE=production
 
 SECRET_KEY=dev
 
-DATABASE_URI=postgresql://microblog_7uo9_user:KPReAqyNWodBLoYCPv1mP8XnnJXsnoIf@dpg-c9qsfcehb05tgup8bf4g-a.ohio-postgres.render.com/microblog_7uo9
+DATABASE_URI=postgresql://trackr_user:fBZaEqa2HjbZR0PB3HUkHfoWRySoi9bD@dpg-ca3fquirrk07v60364f0-a.oregon-postgres.render.com/trackr
 ```
 
 * Apply database migrations: `flask db upgrade`
