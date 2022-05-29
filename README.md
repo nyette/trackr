@@ -1,6 +1,6 @@
 # trackr
 
-[Shopify Back-End Dev Intern Challenge Fall 2022](https://docs.google.com/document/d/1PoxpoaJymXmFB3iCMhGL6js-ibht7GO_DkCF2elCySU/edit?usp=sharing) Submission
+Shopify Back-End Dev Intern Challenge Fall 2022 Submission
 
 [![Run on Repl.it](https://repl.it/badge/github/Nyette/trackr)](https://repl.it/github/Nyette/trackr)
 
@@ -21,9 +21,9 @@
 ```
 MODE=production
 
-SECRET_KEY=dev
+SECRET_KEY=(a random, hard to guess string)
 
-DATABASE_URI=postgresql://trackr_user:fBZaEqa2HjbZR0PB3HUkHfoWRySoi9bD@dpg-ca3fquirrk07v60364f0-a.oregon-postgres.render.com/trackr
+DATABASE_URI=(the connection string of your database)
 ```
 
 * Apply database migrations: `flask db upgrade`
