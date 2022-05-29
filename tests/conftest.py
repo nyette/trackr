@@ -6,10 +6,10 @@ from trackr.models import Item
 @pytest.fixture(scope = "module")
 def new_item():
     item = Item(
-        name = "3DS",
-        description = "XL",
-        price = 350,
-        count = 5
+        name = "Test Item",
+        description = "For testing purposes only.",
+        price = 0,
+        count = 1
     )
     return item
 
@@ -25,8 +25,10 @@ def test_client():
 
 @pytest.fixture(scope = "module")
 def init_db(test_client, new_item):
-    db.create_all()
     db.session.add(new_item)
     db.session.commit()
-    yield
-    db.drop_all()
+    yield db
+    items = Item.query.filter(Item.name.startswith("Test Item")).all()
+    for item in items:
+        db.session.delete(item)
+    db.session.commit()
