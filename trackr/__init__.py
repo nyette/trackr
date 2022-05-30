@@ -9,8 +9,9 @@ from trackr.items import bp as items_bp
 def create_app():
 	# create and configure the app
 	app = Flask(__name__)
-	app.config.from_object("config.Config")
 	mode = environ.get("MODE")
+	if mode == "development":
+		app.config.from_object("config.Config")
 	if mode == "production":
 		app.config.from_object("config.ProdConfig")
 

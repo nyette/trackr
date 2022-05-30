@@ -1,4 +1,5 @@
 import pytest
+from os import environ
 from trackr import create_app
 from trackr.db import db
 from trackr.models import Item
@@ -17,7 +18,8 @@ def new_item():
 def test_client():
     app = create_app()
     app.config.update({
-        "TESTING": True
+        "TESTING": True,
+        "SQLALCHEMY_DATABASE_URI": environ.get("DEV_DATABASE_URI")
     })
     with app.test_client() as test_client:
         with app.app_context():

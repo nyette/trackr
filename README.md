@@ -6,9 +6,9 @@ Shopify Back-End Dev Intern Challenge Fall 2022 Submission
 
 ## Prereqs
 
-* [Python 3.8+](https://www.python.org/)
+* [Python](https://www.python.org/)
 * [Poetry](https://python-poetry.org/)
-* [PostgreSQL 14](https://www.postgresql.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 
 ## Getting Started
 
@@ -19,12 +19,16 @@ Shopify Back-End Dev Intern Challenge Fall 2022 Submission
 * Set environment variables in `.env`:
 
 ```
-MODE=production
+MODE=("development" or "production")
 
 SECRET_KEY=(a random, hard to guess string)
 
-DATABASE_URI=(the connection string of your database)
+PROD_DATABASE_URI=(the connection string of your database)
+
+DEV_DATABASE_URI=(the connection string of your database)
 ```
 
-* Apply database migrations: `flask db upgrade`
+* Generate migration: `flask db migrate`
+* Apply migrations: `flask db upgrade`
+* Run tests: `pytest tests/`
 * Start the server: `python wsgi.py`
