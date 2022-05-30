@@ -98,3 +98,35 @@ def test_delete_item_post(test_client, init_db):
     )
     assert response.status_code == 200
     assert b"The trash bin is empty" not in response.data
+
+def test_restore_item(test_client, init_db):
+    item = Item.query.filter_by(name = "Test Item").first()
+    response = test_client.post(
+        f"/{item.id}/delete",
+        data = dict(
+            deletion_comment = "Not Needed"
+        ),
+        follow_redirects = True
+    )
+    response = test_client.get(
+        f"/{item.id}/restore",
+        follow_redirects = True
+    )
+    assert response.status_code == 200
+    assert b"The trash bin is empty" in response.data
+
+def test_purge_item(test_client, init_db):
+    item = Item.query.filter_by(name = "Test Item").first()
+    response = test_client.post(
+        f"/{item.id}/delete",
+        data = dict(
+            deletion_comment = "Not Needed"
+        ),
+        follow_redirects = True
+    )
+    response = test_client.get(
+        f"/{item.id}/purge",
+        follow_redirects = True
+    )
+    assert response.status_code == 200
+    assert b"The trash bin is empty" in response.data
