@@ -26,8 +26,8 @@ jobs:
           python-version: "3.10"
           cache: "poetry"
       
-      - name: Activate virtual environment
-        run: poetry shell
+      # - name: Activate virtual environment
+        # run: poetry shell
       
       - name: Install dependencies
         run: poetry install
