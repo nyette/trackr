@@ -5,7 +5,7 @@ description = "Shopify Back-End Dev Intern Challenge Fall 2022 Submission"
 authors = ["Antoinette Lee"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 Flask = "^2.1.2"
 python-dotenv = "^0.20.0"
 Flask-SQLAlchemy = "^2.5.1"
