@@ -2,7 +2,7 @@
 
 Shopify Back-End Dev Intern Challenge Fall 2022 Submission
 
-[![Run on Repl.it](https://repl.it/badge/github/Nyette/trackr)](https://repl.it/github/Nyette/trackr)
+[![codecov](https://codecov.io/gh/Nyette/trackr/branch/main/graph/badge.svg?token=5QW54IJ6CB)](https://codecov.io/gh/Nyette/trackr)
 
 ## Prereqs
 
