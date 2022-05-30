@@ -1,5 +1,6 @@
 from os import environ
 from flask import Flask
+from config import Config, ProdConfig
 from trackr.db import db
 from flask_migrate import Migrate
 from trackr import errors
@@ -11,9 +12,9 @@ def create_app():
 	app = Flask(__name__)
 	mode = environ.get("MODE")
 	if mode == "development":
-		app.config.from_object("config.Config")
+		app.config.from_object(Config)
 	if mode == "production":
-		app.config.from_object("config.ProdConfig")
+		app.config.from_object(ProdConfig)
 
 	# db
 	db.init_app(app)

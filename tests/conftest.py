@@ -1,6 +1,6 @@
 import pytest
-from os import environ
 from trackr import create_app
+from config import Config
 from trackr.db import db
 from trackr.models import Item
 
@@ -17,10 +17,7 @@ def new_item():
 @pytest.fixture(scope = "module")
 def test_client():
     app = create_app()
-    app.config.update({
-        "TESTING": True,
-        "SQLALCHEMY_DATABASE_URI": environ.get("DEV_DATABASE_URI")
-    })
+    app.config.from_object(Config)
     with app.test_client() as test_client:
         with app.app_context():
             yield test_client
