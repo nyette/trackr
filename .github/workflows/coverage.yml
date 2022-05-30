@@ -1,0 +1,46 @@
+name: coverage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  codecov:
+    runs-on: ubuntu-latest
+    env:
+      MODE: development
+      SECRET_KEY: dev
+      DEV_DATABASE_URI: ${{ secrets.DEV_DATABASE_URI }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Install Poetry
+        run: pipx install poetry
+      
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+      
+      - name: Activate virtual environment
+        run: poetry shell
+      
+      - name: Install dependencies
+        run: poetry install
+      
+      - name: Apply database migrations
+        run: poetry run flask db upgrade
+      
+      - name: Run tests
+        run: poetry run pytest --cov trackr --cov-report xml tests/
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: true
+      
