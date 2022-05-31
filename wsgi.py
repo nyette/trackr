@@ -20,13 +20,16 @@ class MyGunicornServer(BaseApplication):
         for key, value in config.items():
             self.cfg.set(key.lower(), value)
 
-if __name__ == "__main__":
+def main():
     trackr = create_app()
     host = environ.get("HOST") or "0.0.0.0"
     port = environ.get("PORT") or 8000
     options = {
         "bind": f"{host}:{port}",
-        "workers": get_number_of_workers(),
+        # "workers": get_number_of_workers(),
     }
     MyGunicornServer(trackr, options).run()
+
+if __name__ == "__main__":
+    main()
     
