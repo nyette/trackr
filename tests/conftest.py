@@ -18,6 +18,12 @@ def new_item():
 def test_client():
     app = create_app()
     app.config.from_object(Config)
+    url = app.config["SQLALCHEMY_DATABASE_URI"]
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql://", 1)
+    app.config.update({
+        "SQLALCHEMY_DATABASE_URI": url,
+    })
     with app.test_client() as test_client:
         with app.app_context():
             yield test_client
