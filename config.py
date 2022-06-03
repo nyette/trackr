@@ -5,7 +5,8 @@ base_dir = path.abspath(path.dirname(__file__))
 
 load_dotenv(path.join(base_dir, ".env"))
 
-class Config(object):
+
+class Config:
     FLASK_APP = "trackr"
     FLASK_ENV = "development"
     DEBUG = True
@@ -14,9 +15,11 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = environ.get("DEV_DATABASE_URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+
 class ProdConfig(Config):
     FLASK_ENV = "production"
     DEBUG = False
     TESTING = False
-    SQLALCHEMY_DATABASE_URI = environ.get("PROD_DATABASE_URI") or environ.get("DATABASE_URL")
-    
+    SQLALCHEMY_DATABASE_URI = environ.get("PROD_DATABASE_URI") or environ.get(
+        "DATABASE_URL"
+    )

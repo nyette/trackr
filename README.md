@@ -2,7 +2,7 @@
 
 Shopify Back-End Dev Intern Challenge Fall 2022 Submission
 
-[![codecov](https://codecov.io/gh/Nyette/trackr/branch/main/graph/badge.svg?token=5QW54IJ6CB)](https://codecov.io/gh/Nyette/trackr)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![codecov](https://codecov.io/gh/Nyette/trackr/branch/main/graph/badge.svg?token=5QW54IJ6CB)](https://codecov.io/gh/Nyette/trackr)
 
 ## Prereqs
 
@@ -16,6 +16,7 @@ Shopify Back-End Dev Intern Challenge Fall 2022 Submission
 * Navigate to the project directory
 * Activate the virtual environment: `poetry shell`
 * Install dependencies: `poetry install`
+* Install the git hook scripts: `pre-commit install`
 * Set environment variables in `.env`:
 
 ```
