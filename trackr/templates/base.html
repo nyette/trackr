@@ -9,10 +9,10 @@
                 <a href="{{ url_for('items.index') }}">Items</a> | <a href="{{ url_for('items.create') }}">Create Item</a>
             </nav>
         </header>
-        
+
         <main>
             {% with messages = get_flashed_messages() %}
-            {% if messages %}    
+            {% if messages %}
             <div>
                 {% for message in messages %}
                 <p style="color: green;">{{ message }}</p>
