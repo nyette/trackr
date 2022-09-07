@@ -7,15 +7,15 @@
 ## Prereqs
 
 * [Python](https://www.python.org/)
-* [Poetry](https://python-poetry.org/)
 * [PostgreSQL](https://www.postgresql.org/)
 
 ## Getting Started
 
 * Clone this repo
 * Navigate to the project directory
-* Activate the virtual environment: `poetry shell`
-* Install dependencies: `poetry install`
+* [Upgrade pip, setuptools, and wheel](https://packaging.python.org/en/latest/tutorials/installing-packages/#ensure-pip-setuptools-and-wheel-are-up-to-date)
+* [Create and activate a virtual environment](https://packaging.python.org/en/latest/tutorials/installing-packages/#optionally-create-a-virtual-environment)
+* Install dependencies: `pip install -r requirements.txt`
 * Install the git hook scripts: `pre-commit install`
 * Set environment variables in `.env`:
 
