@@ -35,7 +35,6 @@ def init_db(test_client, new_item):
     db.session.add(new_item)
     db.session.commit()
     yield db
-    items = Item.query.filter(Item.name.startswith("Test Item")).all()
-    for item in items:
-        db.session.delete(item)
-    db.session.commit()
+    db.session.close()
+    db.drop_all()
+    db.create_all()
