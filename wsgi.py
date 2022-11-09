@@ -35,7 +35,11 @@ def main():
         "bind": f"{host}:{port}",
         # "workers": get_number_of_workers(),
     }
-    MyGunicornServer(trackr, options).run()
+    mode = environ.get("MODE")
+    if mode == "development":
+        trackr.run(debug=True)
+    if mode == "production":
+        MyGunicornServer(trackr, options).run()
 
 
 if __name__ == "__main__":
